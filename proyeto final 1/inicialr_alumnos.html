@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Orientar - Responsivo con Modo Oscuro</title>
+  <style>
+    :root {
+      --primary-color: #007acc;
+      --secondary-color: #0056b3;
+      --accent-color: #66ccff;
+      --hover-color: #3399ff;
+      --bg-color: #e6f4ff;
+      --text-color: #333;
+      --shadow: 0 8px 20px rgba(0,0,0,0.15);
+      --card-shadow: 0 5px 15px rgba(0,0,0,0.08);
+
+      --primary-dark: #1f2937;
+      --secondary-dark: #374151;
+      --accent-dark: #140bbc;
+      --hover-dark: #2177a8;
+      --bg-dark: #121212;
+      --text-dark: #e0e0e0;
+    }
+
+    
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alineación arriba */
+  min-height: 100vh;
+  padding: -5rem ; /* Espaciado arriba */
+  transition: background 0.3s, color 0.3s;
+  position: relative;
+  overflow-x: hidden;
+}
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    /* Botón modo oscuro compacto */
+    #modoToggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      width: 44px;
+      height: 44px;
+      background: var(--primary-color);
+      border: none;
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.7),
+        0 0 15px rgba(255, 255, 255, 0.5),
+        0 0 25px rgba(255, 255, 255, 0.3);
+      transition: background 0.3s, transform 0.2s;
+      z-index: 9999;
+    }
+
+    #modoToggle:hover {
+      background: var(--hover-color);
+      transform: scale(1.1);
+    }
+
+    #modoToggle .emoji {
+      font-size: 1.3rem;
+      text-shadow:
+        0 0 10px rgba(255, 255, 150, 0.9),
+        0 0 20px rgba(255, 255, 150, 0.6),
+        0 0 30px rgba(255, 255, 150, 0.4);
+    }
+
+    body.dark-mode #modoToggle .emoji {
+      text-shadow:
+        0 0 10px rgba(180, 200, 255, 0.9),
+        0 0 20px rgba(180, 200, 255, 0.7),
+        0 0 30px rgba(180, 200, 255, 0.5);
+    }
+
+   /*  .flip-container {
+
+      perspective: 1200px;
+      width: 100%;
+      padding:  -90px;
+      max-width: 400px;
+      padding: -1rem;
+      box-sizing: border-box;
+    } */
+    .flip-container {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 13rem; /* Extra espacio arriba */
+  box-sizing: border-box;
+}
+
+    .flip-card {
+      position: relative;
+      width: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .side {
+      position: absolute;
+      width: 100%;
+      min-height: 420px;
+      backface-visibility: hidden;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      background: rgba(108, 213, 245, 0.544);
+      padding: 2rem 2.5rem;
+      box-sizing: border-box;
+    }
+
+    body.dark-mode .side {
+      background: rgba(31 41 55 / 0.85);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    }
+
+    .front { z-index: 2; }
+    .back { transform: rotateY(180deg); }
+
+    h2 {
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      border: 1.5px solid var(--secondary-color);
+      background: transparent;
+      color: var(--text-color);
+      transition: border-color 0.3s;
+    }
+
+    input::placeholder {
+      color: transparent;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--hover-color);
+    }
+
+    label {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      color: var(--secondary-color);
+      font-size: 1rem;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      background-color: transparent;
+      padding: 0 0.25rem;
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+      top: -0.6rem;
+      left: 0.8rem;
+      font-size: 0.75rem;
+      color: var(--primary-color);
+      background-color: var(--bg-color);
+    }
+
+    body.dark-mode input:focus + label,
+    body.dark-mode input:not(:placeholder-shown) + label {
+      color: var(--accent-dark);
+      background-color: var(--bg-dark);
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+      border: none;
+      border-radius: 0.6rem;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      box-shadow: var(--shadow);
+    }
+
+    button:hover {
+      background: var(--hover-color);
+    }
+
+    .info-text {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .info-text strong {
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+
+    body.dark-mode .info-text strong {
+      color: var(--accent-dark);
+    }
+
+    .btn-volver {
+      margin-top: 1.5rem;
+      background: var(--bg-color);
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn-volver:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      input {
+        font-size: 0.95rem;
+        padding: 0.9rem;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 0.9rem;
+      }
+
+      .btn-volver {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .info-text {
+        font-size: 0.85rem;
+      }
+
+      #modoToggle {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 40px;
+        height: 40px;
+      }
+
+      #modoToggle .emoji {
+        font-size: 1.2rem;
+      }
+    }
+    body {
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    .side,
+    input,
+    button,
+    label {
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+    }
+    body.dark-mode input {
+      color: var(--text-dark);
+    }
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 1rem;
+      user-select: none;
+      color: var(--secondary-color);
+      transition: color 0.3s;
+    }
+
+    body.dark-mode .toggle-password {
+      color: var(--accent-dark);
+    }
+    
+  </style>
+</head>
+<body>
+
+  <button id="modoToggle" aria-label="Cambiar modo claro u oscuro" title="Cambiar modo claro u oscuro">
+    <span class="emoji">🌙</span>
+  </button>
+
+
+
+  <div class="flip-container">
+    <div class="flip-card" id="flipCard">
+      <!-- Lado frontal -->
+      <section class="side front">
+        <h2>🔐 Iniciar sesión</h2>
+        <div class="input-group">
+          <input type="email" id="correoAcceso" placeholder=" " required />
+          <label for="correoAcceso">Correo institucional</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="claveAccesoLogin" placeholder=" " required />
+          <label for="claveAccesoLogin">Contraseña</label>
+          <span class="toggle-password" onclick="togglePassword('claveAccesoLogin', this)">👁️</span>
+        </div>
+        <button onclick="verificarAcceso()">Entrar</button>
+        <p class="info-text">¿No tienes cuenta? <strong id="btnRegistrate" tabindex="0" role="button">Regístrate</strong></p>
+        <button class="btn-volver" onclick="location.href='index.html'">🏠 Volver al inicio</button>
+        <p id="errorClave" style="color: crimson; margin-top: 1rem;"></p>
+      </section>
+
+      <!-- Lado trasero -->
+      <section class="side back">
+        <h2>📝 Crear cuenta</h2>
+        <div class="input-group">
+          <input type="text" id="nombreRegistro" placeholder=" " required />
+          <label for="nombreRegistro">Nombre completo</label>
+        </div>
+        <div class="input-group">
+          <input type="email" id="correoRegistro" placeholder=" " required />
+          <label for="correoRegistro">Correo institucional</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="claveAccesoRegistro" placeholder=" " required />
+          <label for="claveAccesoRegistro">Contraseña</label>
+          <span class="toggle-password" onclick="togglePassword('claveAccesoRegistro', this)">👁️</span>
+        </div>
+        <button onclick="registrarUsuario()">Registrar</button>
+
+        <p class="info-text">¿Ya tienes cuenta? <strong id="btnVolverLogin" tabindex="0" role="button">Iniciar sesión</strong></p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Detectar Enter en inputs y disparar login o registro según la vista
+const inputs = document.querySelectorAll('.input-group input');
+inputs.forEach(input => {
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (flipCard.classList.contains('flipped')) {
+        // Si está en "Crear cuenta"
+        registrarUsuario();
+      } else {
+        // Si está en "Iniciar sesión"
+        verificarAcceso();
+      }
+    }
+  });
+});
+    // Toggle mostrar/ocultar contraseña
+    function togglePassword(idCampo, icono) {
+      const campo = document.getElementById(idCampo);
+      const esPassword = campo.type === 'password';
+      campo.type = esPassword ? 'text' : 'password';
+      icono.textContent = esPassword ? '🙈' : '👁️';
+    }
+
+    const btnToggle = document.getElementById('modoToggle');
+
+// ==== MODO OSCURO SINCRONIZADO ====
+const btnModo = document.getElementById('modoToggle');
+const body = document.body;
+
+// Sincroniza con el resto del sitio (clave unificada 'modoOscuro')
+const modoGuardado = localStorage.getItem('modoOscuro') === 'true';
+if (modoGuardado) {
+  body.classList.add('dark-mode');
+  btnModo.innerHTML = '<span class="emoji">☀️</span>';
+} else {
+  btnModo.innerHTML = '<span class="emoji">🌙</span>';
+}
+
+btnModo.addEventListener('click', () => {
+  const isDark = body.classList.toggle('dark-mode');
+  localStorage.setItem('modoOscuro', isDark);
+  btnModo.innerHTML = isDark
+    ? '<span class="emoji">☀️</span>'
+    : '<span class="emoji">🌙</span>';
+});
+
+// ==== Resto del código (flip, login, etc.) ====
+// ...tu código tal como lo tienes debajo...
+
+    // Flip login/registro
+    const flipCard = document.getElementById('flipCard');
+    const btnRegistrate = document.getElementById('btnRegistrate');
+    const btnVolverLogin = document.getElementById('btnVolverLogin');
+
+    btnRegistrate.addEventListener('click', () => flipCard.classList.add('flipped'));
+    btnVolverLogin.addEventListener('click', () => flipCard.classList.remove('flipped'));
+
+    btnRegistrate.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        flipCard.classList.add('flipped');
+      }
+    });
+
+    btnVolverLogin.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        flipCard.classList.remove('flipped');
+      }
+    });
+
+    // Validar login
+    function verificarAcceso() {
+      const correo = document.getElementById('correoAcceso').value.trim();
+      const clave = document.getElementById('claveAccesoLogin').value.trim();
+      const errorElem = document.getElementById('errorClave');
+      errorElem.textContent = '';
+
+      const correoRegex = /^[a-z0-9._%+-]+@(cetis120\.edu\.mx|cetis120\.com)$/i;
+      if (!correoRegex.test(correo)) {
+        errorElem.textContent = "⚠️ Utiliza tu correo institucional válido.";
+        return;
+      }
+
+      if (clave.length < 4) {
+        errorElem.textContent = "⚠️ La contraseña es demasiado corta.";
+        return;
+      }
+      if (correo.toLowerCase() === "23.gomez.aguilar.sebastian@cetis120.edu.mx" && clave === "12345") {
+/*   alert("Bienvenido Sebastián!");
+ */  window.location.href = 'alunmos.html';  // <-- Cambia por la página a la que quieres ir
+} else {
+  errorElem.textContent = "❌ Correo o contraseña incorrectos.";
+}
+    }
+
+
+    function registrarUsuario() {
+      alert("Funcionalidad de registro aún no implementada.");
+    }
+  </script>
+</body>
+</html>

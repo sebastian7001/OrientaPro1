@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+ <link rel="stylesheet" href="css/estilosJustificante.css">
+ <link rel="stylesheet" href="css/estilosjustificante2.css">
+ <title>OrientaPro - Navegación</title>
+
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">OrientaPro</h1>
+    <nav class="header__nav">
+      <a class="header__link" href="reportes.html">Reportes</a>
+      <a class="header__link" href="justificante.html">Justificantes</a>
+      <a class="header__link" href="historial.html">Historial</a>
+      <a class="header__link" href="Revisión_de_Justificantes.html">Revisión de Justificantes</a>
+      <a class="header__link" href="index.html">REGRESAR</a>
+    </nav>
+  </header>
+
+
+
+  <main>
+    <div class="documento">
+      <div class="encabezado">
+        <div class="logo-container">
+          <div class="logo"></div>
+          <div class="titulo-sep">
+            <h1>EDUCACIÓN</h1>
+            <p>Secretaría de Educación Pública<br>Subsecretaría de Educación Media Superior</p>
+          </div>
+        </div>
+        <div class="info-escuela">
+          <p>Dirección General de Educación Tecnológica Industrial y de Servicios<br>
+            CETis No. 120 "Josefa Ortiz de Domínguez"<br>
+            Clave: 16DCT0012K<br>
+            Plantel: Morelia, Mich.</p>
+        </div>
+      </div>
+
+      <div class="titulo-justificante">JUSTIFICANTE</div>
+
+      <div class="fecha">
+        Morelia, Mich., a 
+        <input type="text" id="dia" class="campo-texto corto"> de 
+        <input type="text" id="mes" class="campo-texto medio"> de 
+        <input type="text" id="anio" class="campo-texto corto">
+      </div>
+
+      <div class="contenido">
+        <p>C. PROFESORES DEL 
+          <input type="text" id="departamento" class="campo-texto largo"><br>
+          P R E S E N T E S.-
+        </p>
+        <p>
+          Por este conducto, solicito a ustedes le sea justificada la inasistencia al(a) alumno(a):
+          <input type="text" id="nombreAlumno" class="campo-texto largo">, quien por motivos:
+          <input type="text" id="motivo" class="campo-texto largo">, no asistió a clase el(los) día(s)
+          <input type="text" id="diasFaltados" class="campo-texto medio"> de
+          <input type="text" id="mesFaltado" class="campo-texto medio"> del presente año.
+        </p>
+        <p> Cabe señalar que es RESPONSABILIDAD del ALUMNO(A)  <span class="texto-enfasis">regularizarse en la entrega de trabajos y/o tareas </span> que el(la) profesor(a) haya encomendado.
+         
+        </p>
+      </div>
+
+      <div class="firmas">
+        <p>A T E N T A M E N T E:</p>
+        <p>Oficina de Orientación Educativa</p>
+        <div class="area-firma">
+          <img id="firmaImagen" class="firma-img">
+          <div class="linea-firma"></div>
+          <p>______________________________</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls-bottom">
+      <button id="btnFormulario">Rellenar rápido</button>
+      <button id="btnFirma">Añadir firma</button>
+      <button id="btnGuardar">Guardar justificante</button>
+    </div>
+  </main>
+
+  <!-- Modal Rellenar Rápido -->
+  <div class="formulario-rapido" id="formularioRapido">
+    <h3>Rellenar justificante</h3>
+    <div class="form-group">
+      <label for="formNombreAlumno">Nombre del alumno:</label>
+      <input type="text" id="formNombreAlumno">
+    </div>
+    <div class="form-group">
+      <label for="formDepartamento">Departamento/Grupo:</label>
+      <input type="text" id="formDepartamento">
+    </div>
+    <div class="form-group">
+      <label for="formMotivo">Motivo de inasistencia:</label>
+      <textarea id="formMotivo"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="formFechaInicio">Fecha de inasistencia:</label>
+      <input type="date" id="formFechaInicio">
+    </div>
+    <div class="form-group">
+      <label for="formFechaJustificante">Fecha del justificante:</label>
+      <input type="date" id="formFechaJustificante">
+    </div>
+    <div class="botones-form">
+      <button id="btnCancelar">Cancelar</button>
+      <button id="btnAplicar">Aplicar datos</button>
+    </div>
+  </div>
+
+  <!-- Modal Firma -->
+  <div class="formulario-rapido" id="formularioFirma">
+    <h3>Añadir firma</h3>
+    <div id="firma-container">
+      <canvas id="firmaPad"></canvas>
+      <div class="mensaje-firma">Dibuja aquí tu firma</div>
+    </div>
+    <div class="botones-form">
+      <button id="btnLimpiarFirma">Limpiar</button>
+      <button id="btnCancelarFirma">Cancelar</button>
+      <button id="btnAplicarFirma">Aplicar firma</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <script src="js/firma.js"></script>
+
+
+
+
+
+</body>
+</html>
+

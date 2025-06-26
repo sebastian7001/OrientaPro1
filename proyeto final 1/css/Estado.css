@@ -1,0 +1,166 @@
+
+:root {
+  --color-encabezado: #0d6dfd38;
+  --color-boton-hover: rgb(46, 179, 41);
+  --color-blanco: #ffffff;
+  --color-texto: #003366;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(179, 235, 255);
+  text-align: center;
+}
+
+
+.header {
+  background: var(--color-encabezado);
+  color: var(--color-blanco);
+  padding: 1.5rem 1rem;
+}
+
+
+.header__title {
+  position: relative;
+  color: var(--color-texto);
+  font-size: 2rem;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+
+.header__title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+
+
+@keyframes shine {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}
+
+
+.header__nav {
+  margin-top: 1rem;
+}
+
+
+.header__link {
+  display: inline-block;              /* Para que el padding y ancho funcionen */
+  min-width: 150px;                  /* Botones del mismo ancho mínimo */
+  padding: 0.8rem 1rem;              /* Aumentamos padding para mayor tamaño */
+  background-color: transparent;
+  color: var(--color-blanco);
+  margin: 0 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-size: 23px;
+}
+
+
+.header__link:hover,
+.header__link.active {
+  background-color: var(--color-boton-hover);
+  color: white;
+}
+
+
+/*     ***********************
+*/
+:root {
+--color-fondo: linear-gradient(to bottom right, #cce0ff, #a0d8ef);
+--color-boton: #0d6efd;
+--color-boton-hover: rgb(46, 179, 41);
+
+--color-boton-texto: #fff;
+--color-form-bg: #ffffffcc;
+--color-sombra: rgba(0, 0, 0, 0.1);
+--color-texto: #333;
+}
+
+
+
+main {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2rem;
+}
+
+.form-container {
+background-color: var(--color-form-bg);
+padding: 2rem;
+border-radius: 15px;
+box-shadow: 0 8px 20px var(--color-sombra);
+max-width: 400px;
+width: 100%;
+text-align: left;
+}
+
+.form-container h2 {
+text-align: center;
+margin-bottom: 1rem;
+}
+
+form label,
+.form-container label {
+display: block;
+margin-top: 0.5rem;
+font-weight: bold;
+}
+
+form input[type="text"],
+.form-container input[type="text"] {
+width: 100%;
+padding: 0.5rem;
+margin-top: 0.2rem;
+border: 1px solid #ccc;
+border-radius: 8px;
+}
+
+form button,
+.form-container button {
+margin-top: 1rem;
+width: 100%;
+background-color: var(--color-boton);
+color: var(--color-boton-texto);
+border: none;
+padding: 0.8rem;
+border-radius: 8px;
+font-size: 1rem;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+form button:hover,
+.form-container button:hover {
+background-color: var(--color-boton-hover);
+}
+
+.hidden {
+display: none;
+}
+
+.status {
+font-size: 1.2rem;
+font-weight: bold;
+}

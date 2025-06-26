@@ -1,0 +1,89 @@
+:root {
+  --color-fondo: rgb(179, 235, 255);
+  --color-encabezado: #0d6dfd38;
+  --color-encabezado-tabla: #cce0ff;
+  --color-texto-encabezado-tabla: #004080;
+  --color-boton-base: #0d6dfd38;
+  --color-boton-hover: rgb(46, 179, 41);
+  --color-blanco: #ffffff;
+  --color-gris-suave: #f4f9ff;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-fondo);
+  margin: 0;
+  color: #222;
+}
+
+.header {
+  background: var(--color-encabezado);
+  color: var(--color-blanco);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+.header__nav {
+  margin-top: 1rem;
+}
+
+.header__link {
+  color: var(--color-blanco);
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.header__link:hover,
+.header__link.active {
+  background-color: var(--color-boton-hover);
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  background: var(--color-blanco);
+  padding: 2rem;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+}
+
+.main1 {
+  border: solid black 2px;
+  opacity: 99%;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #003366;
+  text-align: center;
+  position: relative; /* Para la animación ::after */
+  overflow: hidden;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 30%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}
+
+/* background: rgba(255, 255, 255, 0.2);
+ */

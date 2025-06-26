@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/Historial_profes.css">
+
+  <title>Historial de Reportes</title>
+
+</head>
+<body>
+  
+  <header class="header">
+    <h1 class="header__title">OrientaPro</h1>
+    <nav class="header__nav">
+     <!--  <a class="header__link" href="Reportes_profes.html">REPORTES</a>
+      <a class="header__link" href="profesores.html">profesor</a> -->
+      <a class="header__link" href="verjustificantes.html">ver Justificante</a>
+      <a class="header__link" href="Historial_profes.html">Historial</a>
+      <a class="header__link" href="index.html">Regresa </a>
+    </nav>
+  </header>
+
+
+
+  <div class="historial-container">
+    <div class="historial-info">
+      <strong>Consulta y filtra:</strong> Aquí puedes ver todos los <b>justificantes y reportes</b> de tus alumnos, revisar estados, fechas, motivos y acceder a los detalles de cada caso. Usa los filtros para encontrar información rápidamente.
+    </div>
+    <div class="filtros">
+      <input type="text" id="filtroAlumno" placeholder="Buscar alumno...">
+      <select id="filtroGrupo">
+        <option value="">Grupo</option>
+        <option>4A</option>
+        <option>4B</option>
+        <option>5A</option>
+      </select>
+      <select id="filtroTipo">
+        <option value="">Tipo de documento</option>
+        <option>Reporte</option>
+        <option>Justificante</option>
+      </select>
+      <input type="date" id="filtroFecha">
+    </div>
+    <table id="tablaHistorial">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>No. Control</th>
+          <th>Grupo</th>
+          <th>Tipo</th>
+          <th>Fecha</th>
+          <th>Motivo</th>
+          <th>Estado</th>
+          <th>Detalles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Datos insertados por JavaScript -->
+      </tbody>
+    </table>
+  </div>
+  <footer style="text-align:center; margin-top:2.2em; color:#777; font-size:1em;">
+    &copy; 2025 OrientaPro - CETIS 120
+  </footer>
+
+<script src="js/Historial_profes.js"></script>
+
+
+
+</body>
+</html>

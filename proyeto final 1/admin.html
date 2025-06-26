@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administración ‑ OrientaPro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    /* ---------- PALETA ORIENTAPRO ---------- */
+    :root{
+      /* Azul corporativo */
+      --primary:#1d7df2;
+      --primary-dark:#155ecc;
+      --hover:#4594ff;
+
+      /* Degradado cielo → negro */
+      --grad-top:var(--primary);
+      --grad-mid:#6ab9ff;
+      --grad-bottom:#000;
+
+      /* Texto */
+      --text:#00264d;
+      --text-light:#d5eaff;
+
+      /* Sombra */
+      --shadow:0 8px 20px rgba(0,0,0,.15);
+      --card-shadow:0 5px 15px rgba(0,0,0,.08);
+
+      /* Dark‑mode */
+      --bg-dark:#121212;
+      --text-dark:#e0e0e0;
+      --hover-dark:#2177a8;
+    }
+
+    /********* LAYOUT *********/
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+      min-height:100vh;
+      background:linear-gradient(180deg,var(--grad-top)0%,var(--grad-mid)50%,var(--grad-bottom)100%);
+      color:var(--text);
+    }
+
+    /* ---- Encabezado / NAV ---- */
+    header{
+      position:relative;
+      text-align:center;
+      padding:1rem 2rem 1.2rem;
+      background:var(--primary);
+      color:var(--text-light);
+      box-shadow:var(--shadow);
+    }
+    header h1{font-size:2rem;font-weight:700;letter-spacing:.5px}
+
+    nav{
+      margin-top:.8rem;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:.5rem;
+    }
+    nav a{
+      display:inline-block;
+      padding:.55rem 1.25rem;
+      border-radius:6px;
+      font-weight:500;
+      text-decoration:none;
+      color:var(--text-light);
+      transition:background .25s;
+    }
+    nav a:hover{background:var(--hover);color:#fff}
+
+    /* ---- Botón modo claro/oscuro ---- */
+    .modo-toggle{
+      position:absolute;
+      top:10px;right:14px;
+      font-size:1.55rem;
+      border:none;background:none;
+      color:var(--text-light);
+      cursor:pointer;
+    }
+
+    /* ---- Main ---- */
+    main{max-width:1200px;margin:auto;padding:2rem}
+    .card{
+      margin-bottom:2rem;
+      padding:2rem;
+      background:#fff8; /* translucido */
+      backdrop-filter:blur(6px);
+      border:1px solid #ffffff55;
+      border-radius:12px;
+      box-shadow:var(--card-shadow);
+    }
+    .card h2{
+      font-size:1.55rem;
+      margin-bottom:1.2rem;
+      padding-bottom:.4rem;
+      border-bottom:3px solid var(--primary);
+    }
+
+    table{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;background:#fff}
+    th,td{padding:.75rem 1rem;text-align:left}
+    th{background:var(--primary);color:#fff;font-weight:600}
+    tr:not(:last-child) td{border-bottom:1px solid #e0e7ff}
+
+    button{
+      background:var(--primary);border:none;border-radius:6px;
+      padding:.55rem 1.1rem;color:#fff;cursor:pointer;
+      transition:background .25s;
+    }
+    button:hover{background:var(--hover)}
+
+    /* ---------- DARK MODE ---------- */
+    body.dark-mode{
+      background:var(--bg-dark);
+      color:var(--text-dark);
+    }
+    body.dark-mode header{background:var(--primary-dark);color:var(--text-light)}
+    body.dark-mode nav a{color:var(--text-light)}
+    body.dark-mode nav a:hover{background:var(--hover-dark)}
+    body.dark-mode .card{background:#1e1e1ecc;border-color:#ffffff22}
+    body.dark-mode th{background:var(--primary-dark)}
+    body.dark-mode button{background:var(--primary-dark)}
+    body.dark-mode button:hover{background:var(--hover-dark)}
+  </style>
+</head>
+<body>
+  <header>
+    <button class="modo-toggle" onclick="document.body.classList.toggle('dark-mode')">🌓</button>
+    <h1>Administración ‑ OrientaPro</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="auditoria.html">Auditoría</a>
+      <a href="reportes.html">Reportes</a>
+      <a href="usuarios.html">Usuarios</a>
+      <a href="evidencias.html">Evidencias</a>
+      <a href="index.html">REGRESAR</a>
+    </nav>
+  </header>
+
+  <!-- Contenido de ejemplo -->
+  <main>
+    <section class="card">
+      <h2>Registro de Actividades</h2>
+      <table>
+        <thead>
+          <tr><th>Usuario</th><th>Acción</th><th>Fecha y Hora</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Admin</td><td>Modificó reporte</td><td>2025‑06‑20 10:45</td></tr>
+          <tr><td>Profesor Juan Pérez</td><td>Agregó evidencia</td><td>2025‑06‑20 09:20</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Reportes Pendientes</h2>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Alumno</th><th>Fecha Incidente</th><th>Estado</th><th>Acción</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>#1023</td><td>Fernanda Ramírez</td><td>2025‑06‑19</td><td>Pendiente</td><td><button>Ver</button></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

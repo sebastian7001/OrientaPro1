@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto - OrientaPro</title>
+
+  <style>
+    :root {
+      --primary-color: #007acc;
+      --secondary-color: #0056b3;
+      --accent-color: #66ccff;
+      --hover-color: #3399ff;
+      --bg-color: #e6f4ff;
+      --text-color: #003366;
+      --shadow: 0 8px 20px rgba(0,0,0,0.15);
+      --card-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      
+      /* Modo oscuro */
+      --primary-dark: #1f2937;
+      --secondary-dark: #374151;
+      --accent-dark: #66ccff;
+      --hover-dark: #2177a8;
+      --bg-dark: #121212;
+      --text-dark: #e0e0e0;
+      --shadow-dark: 0 8px 30px rgba(0,0,0,0.6);
+    }
+
+    /* Reset básico */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header {
+      width: 100%;
+      max-width: 900px;
+      background: var(--primary-color);
+      color: white;
+      box-shadow: var(--shadow);
+      border-radius: 0.8rem;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    header.dark-mode {
+      background: var(--primary-dark);
+      box-shadow: var(--shadow-dark);
+    }
+
+    .logo-orientapro {
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      background: white;
+      padding: 4px;
+      box-shadow: var(--card-shadow);
+      object-fit: contain;
+    }
+
+    .main__title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      flex-grow: 1;
+      text-align: center;
+      user-select: none;
+    }
+
+    .return-btn {
+      background: white;
+      color: var(--primary-color);
+      padding: 0.45rem 1rem;
+      border-radius: 1.2em;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: var(--card-shadow);
+      transition: background-color 0.3s, color 0.3s;
+      user-select: none;
+    }
+    .return-btn:hover {
+      background: var(--hover-color);
+      color: white;
+    }
+
+    /* Botón modo oscuro */
+    #modoToggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--primary-color);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: white;
+      font-size: 1.4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow:
+        0 0 8px rgba(255,255,255,0.7),
+        0 0 15px rgba(255,255,255,0.5);
+      transition: background-color 0.3s;
+      z-index: 9999;
+    }
+    #modoToggle:hover {
+      background: var(--hover-color);
+    }
+
+    /* Sección botones rápidos */
+    .contact-btns {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .quick-btn {
+      background: #25d366;
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 2em;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background-color 0.3s, transform 0.15s;
+      user-select: none;
+    }
+    .quick-btn:hover {
+      background: #128c7e;
+      transform: scale(1.05);
+    }
+    .mail-btn {
+      background: var(--hover-color);
+    }
+    .mail-btn:hover {
+      background: var(--primary-color);
+    }
+
+    /* Datos contacto */
+    .datos-contacto {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.5rem 2rem;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode .datos-contacto {
+      background: var(--secondary-dark);
+      color: var(--text-dark);
+      box-shadow: var(--shadow-dark);
+    }
+    .datos-contacto h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      user-select: none;
+    }
+    .datos-contacto h2::before {
+      content: "📇 ";
+    }
+    .datos-contacto ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .datos-contacto li {
+      margin-bottom: 0.7em;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .datos-contacto a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    body.dark-mode .datos-contacto a {
+      color: var(--accent-dark);
+    }
+    .datos-contacto a:hover {
+      text-decoration: underline;
+    }
+
+    /* Formulario contacto */
+    .contact-form-section {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.5rem 2rem;
+      max-width: 440px;
+      width: 100%;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode .contact-form-section {
+      background: var(--secondary-dark);
+      color: var(--text-dark);
+      box-shadow: var(--shadow-dark);
+    }
+    .contact-form-section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      user-select: none;
+    }
+    .contact-form-section h2::before {
+      content: "📝 ";
+    }
+    form label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: var(--text-color);
+      user-select: none;
+    }
+    body.dark-mode form label {
+      color: var(--text-dark);
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      border-radius: 0.6rem;
+      border: 1.5px solid var(--primary-color);
+      background: #f0faff;
+      color: var(--text-color);
+      transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+      resize: vertical;
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+    body.dark-mode form input,
+    body.dark-mode form textarea {
+      background: #1e293b;
+      border-color: var(--accent-dark);
+      color: var(--text-dark);
+    }
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: var(--hover-color);
+      background: #e6f4ff;
+      color: var(--text-color);
+    }
+    body.dark-mode form input:focus,
+    body.dark-mode form textarea:focus {
+      background: #2c3e5c;
+      color: var(--text-dark);
+    }
+    form button[type="submit"] {
+      width: 100%;
+      background: linear-gradient(90deg, var(--primary-color) 60%, var(--hover-color));
+      border: none;
+      padding: 0.85rem;
+      border-radius: 1.2rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background 0.3s, transform 0.2s;
+      user-select: none;
+    }
+    form button[type="submit"]:hover {
+      background: linear-gradient(90deg, var(--hover-color) 50%, var(--primary-color));
+      transform: scale(1.05);
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 1rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-align: center;
+    }
+    body.dark-mode .success-message {
+      color: var(--accent-dark);
+    }
+
+    /* Ubicación mapa */
+    .ubicacion {
+      background: white;
+      border-radius: 1.2rem;
+      max-width: 540px;
+      width: 100%;
+      box-shadow: var(--shadow);
+      padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode .ubicacion {
+      background: var(--secondary-dark);
+      color: var(--text-dark);
+      box-shadow: var(--shadow-dark);
+    }
+    .ubicacion h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .ubicacion h2::before {
+      content: "📍 ";
+    }
+    .ubicacion iframe {
+      width: 100%;
+      height: 230px;
+      border: none;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.3s;
+    }
+    body.dark-mode .ubicacion iframe {
+      box-shadow: var(--shadow-dark);
+    }
+    .ubicacion a {
+      color: var(--primary-color);
+      text-decoration: underline;
+      word-break: break-word;
+      user-select: text;
+    }
+    body.dark-mode .ubicacion a {
+      color: var(--accent-dark);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 1.2rem 0;
+      color: #777;
+      font-size: 0.95rem;
+      user-select: none;
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1rem;
+      }
+      .main__title {
+        font-size: 1.4rem;
+        text-align: center;
+      }
+      .return-btn {
+        position: static;
+        width: 100%;
+        max-width: 180px;
+        margin: 0 auto;
+      }
+      .contact-btns {
+        gap: 1.3rem;
+        flex-direction: column;
+      }
+      .datos-contacto,
+      .contact-form-section,
+      .ubicacion {
+        padding: 1.2rem 1rem;
+        max-width: 95vw;
+        border-radius: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+
+    <h1 class="main__title">OrientaPro</h1>
+    <a href="index.html" class="return-btn" aria-label="Volver a la página de inicio">Volver a Inicio</a>
+    <button id="modoToggle" aria-label="Cambiar modo claro u oscuro" title="Cambiar modo claro u oscuro">🌙</button>
+  </header>
+
+
+  <div class="contact-btns" role="region" aria-label="Botones rápidos de contacto">
+    <a href="mailto:orientacion@cetis120.edu.mx" class="quick-btn mail-btn" target="_blank" rel="noopener noreferrer" aria-label="Enviar correo electrónico a orientación">✉️ Correo</a>
+    <a href="https://wa.me/5214431234567" class="quick-btn" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">💬 WhatsApp</a>
+  </div>
+
+  <section class="datos-contacto" aria-label="Datos de contacto">
+    <h2>Datos de contacto</h2>
+    <ul>
+      <li>📞 Teléfono 1: <a href="tel:1234567890">123 456 7890</a></li>
+      <li>📞 Teléfono 2: <a href="tel:1234567890">123 456 7890</a></li>
+      <li>📧 Correo 1: <a href="mailto:orientacion@cetis120.edu.mx">orientacion@cetis120.edu.mx</a></li>
+      <li>📧 Correo 2: <a href="mailto:orientacion@cetis120.edu.mx">23.gomez.aguilar.sebastian@cetis120.edu.mx</a></li>
+
+      <li>⏰ Horario: Lunes a Viernes, 8:00 a.m. - 3:00 p.m.</li>
+    </ul>
+  </section>
+
+  <section class="contact-form-section" aria-label="Formulario para enviar mensaje">
+    <h2>Envíanos un mensaje</h2>
+    <form id="contactForm" autocomplete="off" novalidate>
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required aria-required="true" placeholder="Tu nombre completo" />
+
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" required aria-required="true" placeholder="tu@ejemplo.com" />
+
+      <label for="asunto">Asunto:</label>
+      <input type="text" id="asunto" name="asunto" required aria-required="true" placeholder="Motivo de tu mensaje" />
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="4" required aria-required="true" placeholder="Escribe tu mensaje aquí..."></textarea>
+
+      <button type="submit" aria-label="Enviar mensaje">Enviar</button>
+    </form>
+    <div id="successMsg" class="success-message" role="alert" aria-live="polite">¡Mensaje enviado correctamente!</div>
+  </section>
+
+  <section class="ubicacion" aria-label="Ubicación de CETIS 120">
+    <h2>Ubicación</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d471.1067459131305!2d-101.15008734326437!3d19.72044083917311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1ses-419!2smx!4v1749179930036!5m2!1ses-419!2smx" 
+      allowfullscreen="" 
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación CETIS 120"
+    ></iframe>
+    <div style="margin-top: 0.7em; font-size: 0.97em;">
+
+
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 OrientaPro - CETIS 120
+  </footer>
+
+  <script>
+  // === contacto.js (para la página de contacto) ===
+
+const btnModo = document.getElementById('modoToggle');
+const body = document.body;
+
+// Lee el modo guardado en localStorage
+const modoGuardado = localStorage.getItem('modoOscuro') === 'true';
+if (modoGuardado) {
+  body.classList.add('dark-mode');
+  btnModo.textContent = '☀️';
+} else {
+  btnModo.textContent = '🌙';
+}
+
+// Cambia el modo y guarda en localStorage
+btnModo.addEventListener('click', () => {
+  const isDark = body.classList.toggle('dark-mode');
+  localStorage.setItem('modoOscuro', isDark);
+  btnModo.textContent = isDark ? '☀️' : '🌙';
+});
+
+    // Formulario de contacto - validación simple y feedback
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      successMsg.style.display = 'none';
+
+      // Validaciones básicas
+      const nombre = form.nombre.value.trim();
+      const correo = form.correo.value.trim();
+      const asunto = form.asunto.value.trim();
+      const mensaje = form.mensaje.value.trim();
+
+      if (!nombre || !correo || !asunto || !mensaje) {
+        alert('Por favor, completa todos los campos.');
+        return;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(correo)) {
+        alert('Por favor, introduce un correo válido.');
+        return;
+      }
+
+      // Aquí va el envío real (fetch o AJAX), pero por ahora simulamos éxito
+      setTimeout(() => {
+        successMsg.style.display = 'block';
+        form.reset();
+      }, 500);
+    });
+  </script>
+
+</body>
+</html>
