@@ -1,0 +1,311 @@
+:root {
+    --color-fondo: rgb(179, 235, 255);
+    --color-encabezado: #0d6dfd38;
+    --color-boton-hover: rgb(46, 179, 41);
+    --color-blanco: #fff;
+    --color-texto: #003366;
+    --sombra: 0 3px 15px rgba(80, 120, 180, 0.13);
+    --verde: #22c55e;
+  }
+
+  body {
+    background: var(--color-fondo);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background: var(--color-encabezado);
+    box-shadow: var(--sombra);
+    padding: 2.2rem 0 1.1rem 0;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .logo-orientapro {
+    height: 52px;
+    width: 52px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: var(--sombra);
+    margin-left: 2rem;
+  }
+  .main__title {
+    color: var(--color-texto);
+    margin: 0;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding: 0.45em 2.3em;
+    overflow: hidden;
+    background: transparent;
+    border-radius: 1em;
+    flex: 1;
+    text-align: center;
+  }
+  .main__title::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 30%;
+    height: 100%;
+    background: rgba(255,255,255,0.22);
+    transform: skewX(-25deg);
+    animation: shine 3s infinite;
+  }
+  @keyframes shine {
+    0% { left: -50%; }
+    100% { left: 150%; }
+  }
+  .return-btn {
+    position: absolute;
+    top: 1.4rem;
+    right: 2.2rem;
+    background: var(--color-texto);
+    color: var(--color-blanco);
+    padding: 0.48rem 1.1rem;
+    border-radius: 1.1em;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+    font-size: 1rem;
+    z-index: 10;
+    box-shadow: var(--sombra);
+    border: none;
+    display: inline-block;
+  }
+  .return-btn:hover {
+    background: var(--color-boton-hover);
+    color: #fff;
+  }
+
+  .contact-btns {
+    display: flex;
+    gap: 2.2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3.2rem;
+    margin-bottom: 2.2rem;
+    flex-wrap: wrap;
+  }
+  .quick-btn {
+    background: #25d366;
+    color: var(--color-blanco);
+    padding: 0.5rem 1.6rem;
+    border-radius: 2em;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.16s;
+    box-shadow: var(--sombra);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+  .quick-btn:hover {
+    background: #128c7e;
+    transform: scale(1.08);
+  }
+  .mail-btn {
+    background: var(--color-boton-hover);
+    color: var(--color-blanco);
+  }
+  .mail-btn:hover {
+    background: var(--color-texto);
+  }
+
+  .datos-contacto {
+    max-width: 420px;
+    margin: 0 auto 2.3rem auto;
+    background: var(--color-blanco);
+    border-radius: 1.5rem;
+    box-shadow: var(--sombra);
+    padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+    text-align: left;
+    font-size: 1.08rem;
+  }
+  .datos-contacto h2::before { content: "📇 "; }
+  .datos-contacto h2 {
+    margin-top: 0;
+    font-size: 1.19rem;
+    color: var(--color-texto);
+    text-align: center;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .datos-contacto ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .datos-contacto li {
+    margin: 0.7em 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+  .whatsapp-btn {
+    display: inline-block;
+    background: #25d366;
+    color: #fff;
+    padding: 0.28rem 0.95rem;
+    border-radius: 1em;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 0.1em;
+    transition: background 0.2s;
+    margin-left: 1em;
+  }
+  .whatsapp-btn:hover {
+    background: #128c7e;
+  }
+
+  .contact-form-section {
+    max-width: 440px;
+    margin: 0 auto 2.3rem auto;
+    background: var(--color-blanco);
+    border-radius: 1.5rem;
+    box-shadow: var(--sombra);
+    padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+    text-align: left;
+    font-size: 1.09rem;
+  }
+  .contact-form-section h2::before { content: "📝 "; }
+  .contact-form-section h2 {
+    margin-top: 0;
+    font-size: 1.19rem;
+    color: var(--color-texto);
+    text-align: center;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  form label {
+    font-weight: bold;
+    margin-bottom: 0.1em;
+    display: block;
+    color: var(--color-texto);
+  }
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 0.6rem;
+    border: 1px solid #a6a6a6;
+    font-size: 1rem;
+    margin-bottom: 0.8em;
+    background: #fafdff;
+    box-sizing: border-box;
+    transition: border 0.18s;
+  }
+  form input:focus,
+  form textarea:focus {
+    border: 1.7px solid var(--color-boton-hover);
+    outline: none;
+  }
+  form button[type="submit"] {
+    background: linear-gradient(90deg, var(--color-texto) 60%, var(--color-boton-hover));
+    color: var(--color-blanco);
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 1.2em;
+    font-size: 1.15rem;
+    font-weight: bold;
+    box-shadow: var(--sombra);
+    cursor: pointer;
+    transition: background 0.22s, transform 0.18s;
+    display: block;
+    margin: 0 auto;
+  }
+  form button[type="submit"]:hover {
+    background: linear-gradient(90deg, var(--color-boton-hover) 50%, var(--color-texto));
+    transform: translateY(-2px) scale(1.05);
+  }
+  .success-message {
+    display: none;
+    margin-top: 1.3em;
+    color: var(--verde);
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.09em;
+  }
+
+  .ubicacion {
+    max-width: 540px;
+    margin: 2.5rem auto 1rem auto;
+    background: var(--color-blanco);
+    border-radius: 1.5rem;
+    box-shadow: var(--sombra);
+    padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+    text-align: center;
+  }
+  .ubicacion h2::before { content: "📍 "; }
+  .ubicacion h2 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--color-texto);
+    display: block;
+  }
+  .ubicacion iframe {
+    width: 100%;
+    height: 230px;
+    border: none;
+    border-radius: 1em;
+    margin-top: 1em;
+    box-shadow: var(--sombra);
+  }
+  .ubicacion a {
+    color: #084298;
+    text-decoration: underline;
+    word-break: break-all;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1.2em 0;
+    color: #777;
+    font-size: 0.98em;
+    margin-top: 2em;
+  }
+
+  @media (max-width: 700px) {
+    header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .logo-orientapro {
+      margin-left: 0;
+    }
+    .datos-contacto,
+    .ubicacion,
+    .contact-form-section {
+      padding: 1rem 0.6rem;
+      border-radius: 0.8em;
+      max-width: 97vw;
+    }
+    .main__title {
+      font-size: 1.25rem;
+      padding: 0.25em 0.8em;
+    }
+    .contact-btns {
+      flex-direction: column;
+      gap: 1.1rem;
+      margin-top: 2.1rem;
+    }
+    .return-btn {
+      top: 0.7rem;
+      right: 1rem;
+      font-size: 0.92rem;
+      padding: 0.44rem 0.7rem;
+    }
+  }

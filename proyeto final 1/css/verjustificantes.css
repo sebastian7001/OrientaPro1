@@ -1,0 +1,88 @@
+
+:root {
+  --color-encabezado: #0d6dfd38;
+  --color-boton-hover: rgb(46, 179, 41);
+  --color-blanco: #ffffff;
+  --color-texto: #003366;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(179, 235, 255);
+  text-align: center;
+}
+
+
+.header {
+  background: var(--color-encabezado);
+  color: var(--color-blanco);
+  padding: 1.5rem 1rem;
+}
+
+
+.header__title {
+  position: relative;
+  color: var(--color-texto);
+  font-size: 2rem;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+
+.header__title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+
+
+@keyframes shine {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}
+
+
+.header__nav {
+  margin-top: 1rem;
+}
+
+
+.header__link {
+  display: inline-block;              /* Para que el padding y ancho funcionen */
+  min-width: 150px;                  /* Botones del mismo ancho mínimo */
+  padding: 0.8rem 1rem;              /* Aumentamos padding para mayor tamaño */
+  background-color: transparent;
+  color: var(--color-blanco);
+  margin: 0 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-size: 23px;
+}
+
+
+.header__link:hover,
+.header__link.active {
+  background-color: var(--color-boton-hover);
+  color: white;
+}
+
+
+
+

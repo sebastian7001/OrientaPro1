@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="stylesheet" href="css/Estado.css">
+ <title>OrientaPro - Navegación</title>
+
+</head>
+<body>
+ <header class="header">
+   <h1 class="header__title">OrientaPro</h1>
+   <nav class="header__nav">
+     <!-- Enlace corregido de alunmos.html a alumnos.html -->
+     <a class="header__link" href="alunmos.html">ALUMNOS</a>
+     <a class="header__link" href="justificante_alumnos.html">Solicitud de Justificante</a>
+     <a class="header__link" href="Estado.html">Estado</a>
+     <a class="header__link" href="index.html">REGRESAR</a>
+
+   </nav>
+ </header>
+
+ <main>
+    <section class="form-container">
+      <h2>Buscar justificante</h2>
+      <label for="nombreBuscar">Ingrese su nombre:</label>
+      <input type="text" id="nombreBuscar">
+      <button onclick="buscarJustificante()">Buscar</button>
+
+      <div id="resultado" class="hidden">
+        <p><strong>Estado:</strong> <span id="estadoJustificante"></span></p>
+      </div>
+    </section>
+  </main>
+
+ <!-- Script para resaltar el enlace activo -->
+  <script src="js/Estado.js"></script>
+
+</body>
+</html>
+

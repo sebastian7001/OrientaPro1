@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reportes.css">
+ <title>OrientaPro - Navegación</title>
+ 
+</head>
+<body class="body">
+  <div class="container">
+    <header class="header">
+      <h1 class="header__title">OrientaPro</h1>
+      <nav class="header__nav">
+        <a class="header__link" href="reportes.html">Reportes</a>
+        <a class="header__link" href="justificante.html">Justificantes</a>
+        <a class="header__link" href="historial.html">Historial</a>
+        <a class="header__link" href="Revisión_de_Justificantes.html">Revisión de Justificantes</a>
+        <a class="header__link" href="iniciar_admin.html">ADMIN</a>
+        <a class="header__link" href="index.html">REGRESAR</a>
+      </nav>
+    </header>
+    <!-- Aquí puedes agregar más contenido con clases, ej: <section class="main-content"></section> -->
+
+  </div>
+  <div class="report-container m7">
+    <!-- Nueva sección para los logos -->
+    <div class="header-logos">
+        <div class="logo-container">
+            <img class="logo-container__img" src="imagenes/logo_derecha.jpeg" alt="Logo izquierdo">
+        </div>
+        <div class="header-text">
+            <h3 class="header-text__main">CENTRO DE ESTUDIOS TECNOLÓGICOS INDUSTRIAL Y SERVICIOS NO.120</h3>
+            <h4 class="header-text__subtitle">REPORTE DE CONDUCTA</h4>
+        </div>
+        <div class="logo-container">
+            <img class="logo-container__img" src="imagenes/logo_izquieda.png" alt="Logo derecho">
+        </div>
+    </div>
+
+    <form class="reporte-form" action="aaa">
+        <div class="form-group">
+            <label class="form-group__label" for="nombre">Nombre y firma del que reporta:</label>
+            <input class="form-group__input" type="text" id="nombre" required>
+
+            <label class="form-group__label" for="fecha">Fecha:</label>
+            <input class="form-group__input" type="date" id="fecha" required>
+        </div>
+
+        <div class="form-group">
+            <label class="form-group__label" for="control">No. Control:</label>
+            <input class="form-group__input" type="text" id="control" required>
+
+            <label class="form-group__label" for="grupo">Grupo:</label>
+            <input class="form-group__input" type="text" id="grupo">
+
+            <label class="form-group__label" for="turno">Turno:</label>
+            <div class="turnos">
+                <input class="turnos__input" type="radio" name="turno" value="vespertino" id="vespertino">
+                <label class="turnos__label" for="vespertino">Vespertino</label>
+                <input class="turnos__input" type="radio" name="turno" value="matutino" id="matutino">
+                <label class="turnos__label" for="matutino">Matutino</label>
+            </div>
+
+            <label class="form-group__label" for="especialidad">Especialidad:</label>
+            <select class="form-group__input" id="especialidad" name="especialidad" required>
+                <option value="Soporte y mantenimiento de equipos de cómputo">Soporte y mantenimiento de equipos de cómputo</option>
+                <option value="Puericultura">Puericultura</option>
+                <option value="Ventas">Ventas</option>
+                <option value="Administración de Recursos Humanos">Administración de Recursos Humanos</option>
+                <option value="Contabilidad">Contabilidad</option>
+                <option value="Electrónica">Electrónica</option>
+                <option value="Programación">Programación</option>
+                <option value="Ofimática">Ofimática</option>
+                <option value="Servicios de Hospedaje">Servicios de Hospedaje</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-group__label" for="tutor">Nombre del papá, mamá y tutor:</label>
+            <input class="form-group__input" type="text" id="tutor" required>
+            <label class="form-group__label" for="tel">N. Telefónico:</label>
+            <input class="form-group__input" type="tel" id="tel" required>
+        </div>
+        <div class="conductas">
+            <label class="conductas__label">Motivos:</label>
+          
+            <!-- Agrupamos los checkbox en dos columnas -->
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+              <!-- Primera columna -->
+              <div class="caja-group">
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Fumar"> Fumar</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Juegos de Azar"> Juegos de Azar</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Expresarse con groserías"> Expresarse con groserías</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Exceso de contacto físico en relación de noviazgo"> Exceso de contacto físico en relación de noviazgo</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="No presentar credencial cuando se le solicita"> No presentar credencial cuando se le solicita</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Ser irrespetuoso con cualquier persona"> Ser irrespetuoso con cualquier persona</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Ingerir sustancias nocivas para la salud"> Ingerir sustancias nocivas para la salud</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Maltratar áreas y bienes escolares"> Maltratar áreas y bienes escolares</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Jugar con balones en el aula, pasillos y explanada"> Jugar con balones en el aula, pasillos y explanada</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Encender radios, grabadoras (bocinas portables)"> Encender radios, grabadoras (bocinas portables)</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Conductas ruidosas o escandalosas"> Conductas ruidosas o escandalosas</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Rayar pintarrón, butacas, puertas y paredes"> Rayar pintarrón, butacas, puertas y paredes</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Mal uso de credencial"> Mal uso de credencial</label><br>
+              </div>
+          
+              <!-- Segunda columna -->
+              <div class="caja-group1">
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Indisciplina en aulas, pasillos, actos cívicos"> Indisciplina en aulas, pasillos, actos cívicos</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Permanecer fuera del salón injustificadamente"> Permanecer fuera del salón injustificadamente</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Inasistencia en clase"> Inasistencia en clase</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Falta colectiva"> Falta colectiva</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Tirar basura en los lugares no indicados"> Tirar basura en los lugares no indicados</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Agresiones físicas y/o verbales"> Agresiones físicas y/o verbales</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Realizar reuniones sociales sin autorización"> Realizar reuniones sociales sin autorización</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Sacar butacas del aula"> Sacar butacas del aula</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Uso de celular en clase"> Uso de celular en clase</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Mal uso de equipamiento"> Mal uso de equipamiento</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="No portar el uniforme completo"> No portar el uniforme completo</label><br>
+                <label><input class="caja-group__checkbox" type="checkbox" name="reportes" value="Portar gorra"> Portar gorra</label><br>
+                <label class="caja-group1__otros-label" for="otros">Otros:</label>
+                <input class="caja-group1__otros-input" type="text" id="otros">
+              </div>
+            </div>
+          </div>
+
+        <div class="form-grupo">
+            <label class="form-grupo__label" for="reportesNum">No. de Reportes</label>
+            <input class="form-grupo__input" type="number" id="reportesNum" min="1" max="20" value="1" required>
+            <label class="form-grupo__label" for="suspension">Suspensión x Días:</label>
+            <input class="form-grupo__input" type="number" id="suspension" min="0" max="20" value="0" required>
+        </div>
+
+        <div class="form-grupo">
+            <label class="form-grupo__label" for="observaciones">Observaciones:</label><br>
+            <textarea class="form-grupo__textarea" id="observaciones" rows="4" cols="50"></textarea>
+        </div>
+
+        <div class="form-grupo">
+            <input class="form-grupo__submit" type="submit" value="Enviar">
+        </div>
+    </form>
+</div>
+ 
+
+  <script>
+    // Script para resaltar el enlace activo
+    const links = document.querySelectorAll('.header__link');
+    const currentPage = location.pathname.split('/').pop();
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage || (href === "#" && currentPage === "")) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

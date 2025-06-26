@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credencial Estudiantil</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <link rel="stylesheet" href="css/alunmos.css">
+
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">OrientaPro</h1>
+    <nav class="header__nav">
+      <a class="header__link active" href="#">ALUMNOS</a>
+      <a class="header__link" href="justificante_alumnos.html">Solicitud de Justificante</a>
+      <a class="header__link" href="Estado.html">Estado</a>
+      <a class="header__link" href="index.html">REGRESAR</a>
+    </nav>
+  </header>
+
+  <div class="credencial" id="credencial">
+    <div class="lado frente" id="frente">
+      <div class="titulo">
+        CENTRO DE ESTUDIOS TECNOLÓGICOS<br>
+        INDUSTRIAL Y DE SERVICIOS No. 120<br>
+        C.C.T 16DCT0120V<br>
+        VIGENCIA AGOSTO 2024 - AGOSTO 2025
+      </div>
+      <img src="https://randomuser.me/api/portraits/women/49.jpg" alt="Foto del Alumno">
+      <div class="nombre">RAMÍREZ PÉREZ FERNANDA</div>
+      <div class="correo">24.ramirez.perez.fernanda@cetis120.edu.mx</div>
+      <div class="fila">
+        <div class="columna"><div class="encabezado">GRADO</div><div class="valor">3</div></div>
+        <div class="columna"><div class="encabezado">GRUPO</div><div class="valor">B</div></div>
+        <div class="columna"><div class="encabezado">TURNO</div><div class="valor">MATUTINO</div></div>
+        <div class="columna"><div class="encabezado">No. CREDENCIAL</div><div class="valor">17</div></div>
+      </div>
+      <div>
+        <span class="dato-izq">💻 ESPECIALIDAD:</span><span class="dato-valor">CONTABILIDAD</span>
+      </div>
+      <div>
+        <span class="dato-izq">🆔 No. CONTROL:</span><span class="dato-valor">23316061300259</span>
+      </div>
+      <div>
+        <span class="dato-izq">🗂️ CURP:</span><span class="dato-valor">RAPF061215MMSNRN09</span>
+      </div>
+      <div class="educacion">EDUCACIÓN</div>
+    </div>
+    <div class="lado reverso" id="reverso">
+      <h3>Reportes <button onclick="agregarReporte()">➕</button></h3>
+      <table>
+        <tr><th>Fecha</th><th>Descripción</th><th>Estado</th><th>Ver</th></tr>
+        <tr><td>12/02/2024</td><td>Participación en evento escolar</td><td>Aprobado</td><td><button onclick="verDetalle('Participación en evento escolar')">Ver</button></td></tr>
+        <tr><td>04/03/2024</td><td>Entrega tardía de tarea</td><td>Pendiente</td><td><button onclick="verDetalle('Entrega tardía de tarea')">Ver</button></td></tr>
+        <tr><td>15/05/2024</td><td>Falta injustificada</td><td>Rechazado</td><td><button onclick="verDetalle('Falta injustificada')">Ver</button></td></tr>
+      </table>
+      <h3>Justificantes <button onclick="agregarJustificante()">➕</button></h3>
+      <table>
+        <tr><th>Fecha</th><th>Tipo</th><th>Motivo</th><th>Ver</th></tr>
+        <tr><td>22/04/2024</td><td>Justificada</td><td>Asunto familiar</td><td><button onclick="verDetalle('Asunto familiar')">Ver</button></td></tr>
+        <tr><td>09/05/2024</td><td>No justificada</td><td>Sin motivo válido</td><td><button onclick="verDetalle('Sin motivo válido')">Ver</button></td></tr>
+        <tr><td>28/05/2024</td><td>Justificada</td><td>Cita médica</td><td><button onclick="verDetalle('Cita médica')">Ver</button></td></tr>
+      </table>
+    </div>
+  </div>
+  <button class="boton" onclick="girarCredencial()">🔄 Girar Credencial</button>
+  <button class="boton" onclick="descargarCredencial()">📥 Descargar</button>
+
+    <script src="js/alunmos.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+
+:root {
+  --color-encabezado: #0d6dfd38;
+  --color-boton-hover: rgb(46, 179, 41);
+  --color-blanco: #ffffff;
+  --color-texto: #003366;
+  --color-fondo: rgb(179, 235, 255);
+  --color-boton: #0d6efd;
+  --color-boton-hover-oscuro: #084298;
+  --color-boton-texto: #fff;
+  --color-form-bg: #ffffffcc;
+  --color-sombra: rgba(0, 0, 0, 0.1);
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--color-fondo);
+      color: var(--color-texto);
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .header {
+      background: var(--color-encabezado);
+      color: var(--color-blanco);
+      padding: 1.5rem 1rem;
+    }
+
+    .header__title {
+      position: relative;
+      color: var(--color-texto);
+      font-size: 2rem;
+      font-weight: bold;
+      overflow: hidden;
+    }
+
+    .header__title::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: skewX(-25deg);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -50%; }
+      100% { left: 150%; }
+    }
+
+    .header__nav {
+      margin-top: 1rem;
+    }
+
+    .header__link {
+      display: inline-block;
+      min-width: 150px;
+      padding: 0.8rem 1rem;
+      background-color: transparent;
+      color: var(--color-blanco);
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      font-size: 23px;
+    }
+
+    .header__link:hover,
+    .header__link.active {
+      background-color: var(--color-boton-hover);
+      color: white;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+    }
+
+    .form-container {
+      background-color: var(--color-form-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px var(--color-sombra);
+      max-width: 500px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .form-container h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--color-boton-hover);
+    }
+
+    .form-container p {
+      margin: 0.2rem 0;
+    }
+
+    .approve-btn,
+    .reject-btn {
+      margin-top: 0.5rem;
+      width: 48%;
+      background-color: var(--color-boton);
+      color: var(--color-boton-texto);
+      border: none;
+      padding: 0.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: inline-block;
+    }
+
+    .approve-btn:hover,
+    .reject-btn:hover {
+      background-color: var(--color-boton-hover);
+    }
+
+    .approve-btn {
+      margin-right: 4%;
+    }
+
+    .hidden {
+      display: none;
+    }

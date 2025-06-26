@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/justificante_alumnos.css">
+  <title>OrientaPro - Navegación</title>
+
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">OrientaPro</h1>
+    <nav class="header__nav">
+      <a class="header__link" href="alunmos.html">ALUMNOS</a>
+      <a class="header__link" href="justificante_alumnos.html">Solicitud de Justificante</a>
+      <a class="header__link" href="Estado.html">Estado</a>
+      <a class="header__link" href="index.html">REGRESAR</a>
+
+    </nav>
+  </header>
+
+  <main>
+    <section class="form-container">
+      <h2 id="tituloFormulario">Solicitud de Justificante</h2>
+      <form id="justificanteForm">
+        <label for="nombre">Nombre del alumno:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="motivo">Motivo de la inasistencia:</label>
+        <input type="text" id="motivo" name="motivo" required>
+
+        <label for="dias">Día(s) de la falta:</label>
+        <input type="text" id="dias" name="dias" required placeholder="Ej. 06/06/2025">
+
+        <label for="mes">Mes de la falta:</label>
+        <input type="text" id="mes" name="mes" required placeholder="Ej. junio">
+
+        <label for="comprobante">Adjuntar comprobante (opcional):</label>
+        <input type="file" id="comprobante" name="comprobante">
+
+        <button type="submit">Enviar solicitud</button>
+      </form>
+      <div id="mensajeExito" class="hidden">
+        <p>✅ Su solicitud ha sido enviada. Espere la respuesta en la página de seguimiento.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/justificante_alumnos.js"></script>
+</body>
+</html>

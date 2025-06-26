@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/Reportes_profes.css" />
+  <title>Historial de Reportes</title>
+</head>
+<body>
+  
+  <header class="header">
+    <h1 class="header__title">OrientaPro</h1>
+    <nav class="header__nav">
+  <a class="header__link" href="Reportes_profes.html">REPORTES</a>
+  <a class="header__link" href="profesores.html">profesor</a>
+  <a class="header__link" href="verjustificantes.html">ver Justificante</a>
+  <a class="header__link" href="Historial_profes.html">Historial</a>
+  <a class="header__link" href="index.html">Regresar</a>
+    
+
+    </nav>
+  </header>
+
+  <main class="main1">
+    <h1>Historial Guardado</h1>
+    <table id="reportsList" aria-label="Lista de reportes y justificantes">
+      <thead>
+        <tr>
+          <th>Alumno</th>
+          <th>Control</th>
+          <th>Fecha</th>
+          <th>Tipo</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody id="reportsBody"></tbody>
+    </table>
+    <p id="noData" style="display:none;">No hay reportes o justificantes guardados.</p>
+    <button id="clearBtn" class="btn-clear" title="Eliminar todo el historial">Limpiar Historial</button>
+  </main>
+
+
+
+
+
+
+  <!-- Script para resaltar enlace activo  src="js/Reportes_profes.js" -->
+  <script >
+    const links = document.querySelectorAll('.header__link');
+    const currentPage = location.pathname.split('/').pop();
+
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+
+
+
+</body>
+</html>
